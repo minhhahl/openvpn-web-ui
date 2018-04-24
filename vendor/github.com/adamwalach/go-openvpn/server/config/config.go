@@ -15,6 +15,10 @@ var defaultConfig = Config{
 	Dh:                  "dh2048.pem",
 	Keepalive:           "10 120",
 	IfconfigPoolPersist: "ipp.txt",
+	Ta:                	 "ta.key",
+	Crl:				 "crl.pem",
+	DaemonUser:			 "user nobody",
+	DaemonGroup:		 "group nogroup",
 }
 
 //Config model
@@ -25,16 +29,21 @@ type Config struct {
 	Ca   string
 	Cert string
 	Key  string
+	Ta	 string
 
 	Cipher  string
 	Keysize int
 	Auth    string
 	Dh      string
-
+	Crl		string
+	
 	Server              string
 	IfconfigPoolPersist string
 	Keepalive           string
 	MaxClients          int
+
+	DaemonUser			string
+	DaemonGroup			string
 
 	Management string
 }

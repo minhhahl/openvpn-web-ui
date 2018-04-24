@@ -4,15 +4,15 @@ persist-key
 client
 resolv-retry infinite
 remote {{ .ServerAddress }} {{ .Port }} {{ .Proto }}
-lport 0
+nobind
 
 cipher {{ .Cipher }}
 keysize {{ .Keysize }}
 auth {{ .Auth }}
-tls-client
 
 ca {{ .Ca }}
 cert {{ .Cert }}
 key {{ .Key }}
+tls-auth {{ .Ta }} 1
 
 comp-lzo

@@ -73,7 +73,7 @@ func createDefaultUsers() {
 func createDefaultSettings() {
 	s := Settings{
 		Profile:       "default",
-		MIAddress:     "openvpn:2080",
+		MIAddress:     "127.0.0.1:2080",
 		MINetwork:     "tcp",
 		ServerAddress: "127.0.0.1",
 		OVConfigPath:  "/etc/openvpn/",
@@ -101,7 +101,7 @@ func createDefaultOVConfig() {
 			Cipher:              "AES-256-CBC",
 			Keysize:             256,
 			Auth:                "SHA256",
-			Dh:                  "dh2048.pem",
+			Dh:                  "dh4096.pem",
 			Keepalive:           "10 120",
 			IfconfigPoolPersist: "ipp.txt",
 			Management:          "0.0.0.0 2080",
@@ -110,6 +110,10 @@ func createDefaultOVConfig() {
 			Ca:                  "keys/ca.crt",
 			Cert:                "keys/server.crt",
 			Key:                 "keys/server.key",
+			Ta:                	 "ta.key",
+			Crl:				 "keys/crl.pem",
+			DaemonUser:			 "user nobody",
+			DaemonGroup:		 "group nobody",
 		},
 	}
 	o := orm.NewOrm()

@@ -14,6 +14,7 @@ var defaultConfig = Config{
 	Keysize:       256,
 	Auth:          "SHA256",
 	Ca:            "ca.crt",
+	Ta:            "ta.key",
 }
 
 //Config model
@@ -25,6 +26,7 @@ type Config struct {
 	Ca   string
 	Cert string
 	Key  string
+	Ta	 string
 
 	Cipher  string
 	Keysize int

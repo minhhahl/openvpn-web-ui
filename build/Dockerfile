@@ -7,6 +7,7 @@ RUN chmod 755 /usr/share/easy-rsa/*
 ADD assets/start.sh /opt/start.sh
 ADD assets/generate_ca_and_server_certs.sh /opt/scripts/generate_ca_and_server_certs.sh
 ADD assets/vars.template /opt/scripts/
+ADD assets/crl.pem.template /opt/scripts/
 
 ADD openvpn-web-ui.tar.gz /opt/openvpn-gui/
 RUN rm -f /opt/openvpn-gui/data.db

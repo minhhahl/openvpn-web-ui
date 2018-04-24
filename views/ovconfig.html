@@ -55,6 +55,20 @@
       </div>
 
       <div class="form-group">
+        <label for="name">TA key</label>
+        <input type="text" class="form-control" name="Ta" id="Ta" placeholder="Enter TLS auth key path"
+          value="{{ .Settings.Ta }}">
+        <span id="helpBlock" class="help-block"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">CRL file</label>
+        <input type="text" class="form-control" name="Crl" id="Crl" placeholder="Enter revoking CRL file path"
+          value="{{ .Settings.Crl }}">
+        <span id="helpBlock" class="help-block"></span>
+      </div>
+
+      <div class="form-group">
         <label for="name">Cipher</label>
         <input type="text" class="form-control" name="Cipher" id="Cipher" placeholder=""
           value="{{ .Settings.Cipher }}">
@@ -121,6 +135,20 @@
           value="{{ .Settings.MaxClients }}">
         <span id="helpBlock" class="help-block">The maximum number of concurrently connected
             clients we want to allow.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Daemon User</label>
+        <input type="text" class="form-control" name="DaemonUser" id="DaemonUser" placeholder=""
+          value="{{ .Settings.DaemonUser }}">
+        <span id="helpBlock" class="help-block">User for non Window.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Daemon Group</label>
+        <input type="text" class="form-control" name="DaemonGroup" id="DaemonGroup" placeholder=""
+          value="{{ .Settings.DaemonGroup }}">
+        <span id="helpBlock" class="help-block">User for non Window.</span>
       </div>
 
       <div class="form-group">

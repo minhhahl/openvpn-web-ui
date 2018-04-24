@@ -43,11 +43,13 @@ func (c *CertificatesController) Download() {
 
 	zw := zip.NewWriter(c.Controller.Ctx.ResponseWriter)
 
-	keysPath := models.GlobalCfg.OVConfigPath + "keys/"
+	cfgPath := models.GlobalCfg.OVConfigPath
+	keysPath := cfgPath + "keys/"
 	if cfgPath, err := saveClientConfig(name); err == nil {
 		addFileToZip(zw, cfgPath)
 	}
 	addFileToZip(zw, keysPath+"ca.crt")
+	addFileToZip(zw, cfgPath+"ta.key")
 	addFileToZip(zw, keysPath+name+".crt")
 	addFileToZip(zw, keysPath+name+".key")
 
@@ -148,6 +150,7 @@ func saveClientConfig(name string) (string, error) {
 	cfg.Auth = serverConfig.Auth
 	cfg.Cipher = serverConfig.Cipher
 	cfg.Keysize = serverConfig.Keysize
+	cfg.Ta = serverConfig.Ta
 
 	destPath := models.GlobalCfg.OVConfigPath + "keys/" + name + ".conf"
 	if err := config.SaveToFile("conf/openvpn-client-config.tpl",
